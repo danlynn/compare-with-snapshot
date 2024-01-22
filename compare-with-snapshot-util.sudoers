@@ -1,0 +1,10 @@
+# This file grants sudo permission to run the script that increases/decreases
+# the brightness of the zephyrus screenpad.  This makes it so that you can
+# bind shortcut keys to run these scripts without having them ask for your
+# password.
+#
+# Installation:
+# 1. Change the path of the compare-with-snapshot-util.rb script below to its actual location
+# 2. Copy this file to /etc/sudoers.d/
+# 3. Change the permissions of this file to '-r--r----- 1 root root'
+danlynn ALL=(ALL) NOPASSWD: /home/danlynn/Documents/automation/compare-with-snapshot/compare-with-snapshot-util.rb

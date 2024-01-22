@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin,all/allfiles
+Actions=compareWithSnapshot
+
+[Desktop Action compareWithSnapshot]
+Name=Compare with Snapshot
+Icon=bcompare
+Exec=/home/danlynn/Documents/automation/compare-with-snapshot/compare-with-snapshot.rb
+
