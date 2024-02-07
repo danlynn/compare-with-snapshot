@@ -124,7 +124,7 @@ def differing_snapshots(pathname)
 end
 
 
-# Copy the 'snapshot_path' file out to /tmp where apps that are not running as
+# Copy the 'snapshot' file out to /tmp where apps that are not running as
 # root (like rubymine) can access it.
 #
 # @param snapshot [Hash] {:label, :pathname}
@@ -140,8 +140,8 @@ def copy_to_tempfile(snapshot)
 end
 
 
-# Copy the 'snapshot_path' file out to /tmp where apps that are not running as
-# root (like rubymine) can access it.
+# Delete the 'snapshot' file from /tmp.
+#
 # @param snapshot [Hash] {:label, :pathname}
 def delete_tempfile(snapshot)
   logger.puts("=== call --delete-tempfile")
@@ -152,7 +152,7 @@ def delete_tempfile(snapshot)
 end
 
 
-# Copy the 'snapshot_path' file out to /tmp where apps that are not running as
+# Copy the 'snapshot' file out to /tmp where apps that are not running as
 # root (like rubymine) can access it.  Then delete the copied file after it has
 # been displayed by the diff utility.
 def invoke_diff_util(pathname, selected_snapshot)
