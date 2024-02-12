@@ -113,7 +113,7 @@ end
 #   of each different snapshot.
 def differing_snapshots(pathname)
   logger.puts("=== call --differing-snapshots")
-  json_str = `sudo ./compare-with-snapshot-util.rb --differing-snapshots "#{pathname}"`
+  json_str = `sudo #{__dir__}/compare-with-snapshot-util.rb --differing-snapshots "#{pathname}"`
   logger.puts("=== return --differing-snapshots: exitstatus=#{$?.exitstatus}")
   unless $?.success?
     raise "ERROR: Failed to retrieve differing snapshots (exit status: #{$?.exitstatus})"
@@ -131,7 +131,7 @@ end
 # @return [Pathname] path to new temp file
 def copy_to_tempfile(snapshot)
   logger.puts("=== call --copy-to-tempfile")
-  json_str = `sudo ./compare-with-snapshot-util.rb --copy-to-tempfile "#{snapshot[:label]}" "#{snapshot[:pathname]}"`.chomp
+  json_str = `sudo #{__dir__}/compare-with-snapshot-util.rb --copy-to-tempfile "#{snapshot[:label]}" "#{snapshot[:pathname]}"`.chomp
   logger.puts("=== return --copy-to-tempfile: exitstatus=#{$?.exitstatus}")
   unless $?.success?
     raise "ERROR: Failed to copy snapshot to tempfile (exit status: #{$?.exitstatus})"
@@ -145,7 +145,7 @@ end
 # @param snapshot [Hash] {:label, :pathname}
 def delete_tempfile(snapshot)
   logger.puts("=== call --delete-tempfile")
-  `sudo ./compare-with-snapshot-util.rb --delete-tempfile "#{snapshot[:label]}" "#{snapshot[:pathname]}"`
+  `sudo #{__dir__}/compare-with-snapshot-util.rb --delete-tempfile "#{snapshot[:label]}" "#{snapshot[:pathname]}"`
   unless $?.success?
     raise "ERROR: Failed to copy snapshot to tempfile (exit status: #{$?.exitstatus})"
   end
